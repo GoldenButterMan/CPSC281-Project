@@ -29,8 +29,8 @@ public class CardDisplayRegister {
 	
 	private void getDisplayHand() {
 		user.setHand(deck);
-		for(int i = 0; i < user.getHand().size(); i++) {
-			String card = user.getHand().get(1).toString();
+		for(int i = 0; i < 2; i++) {
+			String card = user.getHand().get(i).toString();
 			output += card;
 		}
 		
@@ -39,9 +39,9 @@ public class CardDisplayRegister {
 	public void discardedCard(int i) {
 		output = "";
 		user.getHand().remove(i);
-		for(int j = 0; j < user.getHand().size(); j++) {
+		/*for(int j = 0; j < user.getHand().size(); j++) {
 			output += user.getHand().get(j).toString();
-		}
+		}*/
 		update();
 	}
 
