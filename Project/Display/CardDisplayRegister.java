@@ -11,6 +11,7 @@ public class CardDisplayRegister {
 	private Deck deck = new Deck();
 	
 	public CardDisplayRegister() {
+		user.setHand(deck);
 		setRegisterListener((s) -> {});
 	}
 	
@@ -28,8 +29,7 @@ public class CardDisplayRegister {
 	}
 	
 	private void getDisplayHand() {
-		user.setHand(deck);
-		int size = user.getHand().size() /2;
+		int size = user.getHand().size();
 		String card = "";
 		for(int i = 0; i < size; i++) {
 			card += user.getHand().get(i).toString();

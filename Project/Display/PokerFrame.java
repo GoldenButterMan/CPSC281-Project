@@ -58,7 +58,7 @@ public class PokerFrame extends JFrame{
 		button = new JButton("Enter");
 		textInput.setEditable(true);
 		button.addActionListener((str) -> myRegister.setInput(textInput.getText()));
-		button.addActionListener((str) -> cardRegister.discardedCard(Integer.parseInt(textInput.getText())));
+		button.addActionListener((str) -> cardRegister.discardedCard(Integer.parseInt(textInput.getText()) - 1));
 		display1.add(betLabel);
 		display1.add(betInput);
 		display1.add(betButton);
