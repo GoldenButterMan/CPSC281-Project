@@ -12,7 +12,6 @@ public class Main {
         Deck deck = new Deck();
         Player player = new Player();
         player.setHand(deck);
-        System.out.println(player.getHand());
     }
 
 
