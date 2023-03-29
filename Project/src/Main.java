@@ -9,9 +9,6 @@ public class Main {
 	}
     public static void main (String[] args){
     	javax.swing.SwingUtilities.invokeLater(() -> start());
-        Deck deck = new Deck();
-        Player player = new Player();
-        player.setHand(deck);
     }
 
 
