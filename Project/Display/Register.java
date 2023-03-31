@@ -26,10 +26,10 @@ public class Register {
 	
 	public String getDisplayText() {
 		if(output.toLowerCase().equals("draw")) {
-			output = "You drew a card \n";
+			output += "You drew a card \n";
 		}
 		if(output.toLowerCase().equals("fold")) {
-			output = "You fold your hand \n";
+			output += "You fold your hand \n";
 		}
 		return output;
 	}
