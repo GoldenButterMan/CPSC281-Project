@@ -39,7 +39,7 @@ public class Card {
 
 
     /**
-     * This method valdates the argument and sets
+     * This method validates the argument and sets
      * the instant variable to that name
      * @param suit spades, hearts, club, diamonds
      */
