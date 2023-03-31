@@ -54,7 +54,7 @@ public class PokerFrame extends JFrame{
 		display = new JTextArea();
 		display.setText("Enter Your Initial bet");
 		display.setEditable(false);
-		display.setSize(800, 400);
+		display.setSize(800, 300);
 		display.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		myRegister.setRegisterListener((str) -> display.setText(str));
 		button.addActionListener((str) -> myRegister.setInput(textInput.getText()));
