@@ -3,10 +3,13 @@ package Display;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.Border;
 import javax.swing.JTextArea;
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
 
 import javax.swing.JLabel;
@@ -52,6 +55,7 @@ public class PokerFrame extends JFrame{
 		display.setText("Enter Your Initial bet");
 		display.setEditable(false);
 		display.setSize(800, 400);
+		display.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		myRegister.setRegisterListener((str) -> display.setText(str));
 		button.addActionListener((str) -> myRegister.setInput(textInput.getText()));
 		textInput.setEditable(true);
