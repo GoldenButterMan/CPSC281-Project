@@ -1,10 +1,12 @@
 package Display;
 
+import src.Card;
 import src.Deck;
 import Player.Player;
 import java.util.function.Consumer;
 
 public class CardDisplayRegister {
+	private Card discarded;
 	Register myRegister = new Register();
 	Player user = new Player();
 	private String output = "";
@@ -38,11 +40,15 @@ public class CardDisplayRegister {
 		}
 		
 	}
-	
 	public void discardedCard(int i) {
+		discarded = user.getHand().get(i);
 		user.discard(i);
 		update();
 		
+	}
+	
+	public Card getDiscarded() {
+		return discarded;
 	}
 
 }
