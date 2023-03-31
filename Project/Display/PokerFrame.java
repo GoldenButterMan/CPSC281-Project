@@ -3,6 +3,7 @@ package Display;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.JTextArea;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import java.awt.BorderLayout;
@@ -14,7 +15,7 @@ import Player.Player;
 public class PokerFrame extends JFrame{
 	private Player player = new Player();
 	private JTextField pot;
-	private JTextField display;
+	private JTextArea display;
 	private JButton button = new JButton("Enter");
 	private Register myRegister = new Register();
 	private BetRegister betRegister = new BetRegister();
@@ -47,15 +48,15 @@ public class PokerFrame extends JFrame{
 	}
 	
 	private void mainDisplay() {
-		display = new JTextField();
-		display.setText("Enter Your Initial bet:");
+		display = new JTextArea();
+		display.setText("Enter Your Initial bet");
 		display.setEditable(false);
-		display.setSize(800, 300);
+		display.setSize(800, 400);
 		myRegister.setRegisterListener((str) -> display.setText(str));
 		button.addActionListener((str) -> myRegister.setInput(textInput.getText()));
 		textInput.setEditable(true);
 		button.addActionListener((str) -> cardRegister.discardedCard(Integer.parseInt(textInput.getText()) - 1));
-		add(display, BorderLayout.NORTH);
+		add(display);
 	}
 	
 	private void createInput() {
