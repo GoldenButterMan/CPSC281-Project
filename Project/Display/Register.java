@@ -35,7 +35,7 @@ public class Register {
 	}
 	
 	public void setInput(String in) {
-		output = in;
+		output += in;
 		update();
 	}
 	
@@ -46,7 +46,7 @@ public class Register {
 	}
 	
 	public void betAnnounce(int wager) {
-		output = "You bet " + wager + "\n";
+		output += "You bet " + wager + "\n";
 		update();
 	}
 	
