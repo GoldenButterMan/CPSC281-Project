@@ -26,10 +26,10 @@ public class Register {
 	
 	public String getDisplayText() {
 		if(output.toLowerCase().equals("draw")) {
-			output = "You drew a card";
+			output = "You drew a card \n";
 		}
 		if(output.toLowerCase().equals("fold")) {
-			output = "You fold your hand";
+			output = "You fold your hand \n";
 		}
 		return output;
 	}
@@ -46,7 +46,7 @@ public class Register {
 	}
 	
 	public void betAnnounce(int wager) {
-		output = "You bet " + wager;
+		output = "You bet " + wager + "\n";
 		update();
 	}
 	
