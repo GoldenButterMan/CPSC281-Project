@@ -45,8 +45,8 @@ public class Register {
 		update();
 	}
 	
-	public void betAnnounce(int wage) {
-		output = "You bet " + wage;
+	public void betAnnounce(int wager) {
+		output = "You bet " + wager;
 		update();
 	}
 	
