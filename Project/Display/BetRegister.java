@@ -5,6 +5,7 @@ import src.Deck;
 import java.util.function.Consumer;
 
 public class BetRegister {
+	private int playerBet;
 	private int potTotal = 0;
 	private String output = "";
 	private Player user = new Player();
@@ -36,9 +37,14 @@ public class BetRegister {
 	}
 	
 	public void setBet(int wager) {
-		user.setTotal(user.getTotal() - wager);
+		playerBet = user.bet(wager);
+		user.setTotal(user.getTotal() - playerBet);
 		bet = wager;
 		update();
+	}
+	
+	public String betAnnounce() {
+		return "You bet " + playerBet;
 	}
 	
 

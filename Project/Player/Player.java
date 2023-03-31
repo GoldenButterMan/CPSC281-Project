@@ -16,12 +16,13 @@ public class Player {
 		hand = new ArrayList<>();
 	}
 	
-	public void bet(int wager) throws IllegalArgumentException{
+	public int bet(int wager) throws IllegalArgumentException{
 		if(wager > total || wager < 0) {
 			throw new IllegalArgumentException("This wager is invalid, please enter a different amount");
 		}
 		else {
 			total -= wager;
+			return wager;
 		}
 	}
 	

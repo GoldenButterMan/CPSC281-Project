@@ -15,7 +15,7 @@ public class PokerFrame extends JFrame{
 	private Player player = new Player();
 	private JTextField pot;
 	private JTextField display;
-	private JButton button;
+	private JButton button = new JButton("Enter");
 	private Register myRegister = new Register();
 	private BetRegister betRegister = new BetRegister();
 	private JPanel input = new JPanel();
@@ -31,12 +31,7 @@ public class PokerFrame extends JFrame{
 	
 	public PokerFrame() {
 		super("5 Card Poker");
-		display = new JTextField();
-		display.setText("Enter Your Initial bet:");
-		display.setEditable(false);
-		display.setSize(800, 300);
-		myRegister.setRegisterListener((str) -> display.setText(str));
-		add(display, BorderLayout.NORTH);
+		mainDisplay();
 		pot = new JTextField();
 		pot.setText("Current money in the pot: ");
 		betRegister.setRegisterListener((str) -> pot.setText(str));
@@ -51,14 +46,23 @@ public class PokerFrame extends JFrame{
 		setVisible(true);
 	}
 	
+	private void mainDisplay() {
+		display = new JTextField();
+		display.setText("Enter Your Initial bet:");
+		display.setEditable(false);
+		display.setSize(800, 300);
+		myRegister.setRegisterListener((str) -> display.setText(str));
+		button.addActionListener((str) -> myRegister.setInput(textInput.getText()));
+		textInput.setEditable(true);
+		button.addActionListener((str) -> cardRegister.discardedCard(Integer.parseInt(textInput.getText()) - 1));
+		add(display, BorderLayout.NORTH);
+	}
+	
 	private void createInput() {
 		JPanel display1 = new JPanel();
 		display1.setLayout(new FlowLayout());
 		betButton.addActionListener((in) -> betRegister.setBet(Integer.parseInt(betInput.getText())));
-		button = new JButton("Enter");
-		textInput.setEditable(true);
-		button.addActionListener((str) -> myRegister.setInput(textInput.getText()));
-		button.addActionListener((str) -> cardRegister.discardedCard(Integer.parseInt(textInput.getText()) - 1));
+		betButton.addActionListener((str) -> myRegister.betAnnounce(Integer.parseInt(betInput.getText())));
 		display1.add(betLabel);
 		display1.add(betInput);
 		display1.add(betButton);

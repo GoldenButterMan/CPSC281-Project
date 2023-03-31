@@ -8,6 +8,7 @@ public class Register {
 	private String output = "";
 	private Player user = new Player();
 	private int bet = user.getTotal();
+	private int playerBet;
 	private Deck deck = new Deck();
 	private Consumer<String> sink;
 	
@@ -39,8 +40,13 @@ public class Register {
 	}
 	
 	public void setBet(int wager) {
-		user.setTotal(user.getTotal() - wager);
-		bet = wager;
+		playerBet = user.bet(wager);
+		user.setTotal(user.getTotal() - playerBet);
+		update();
+	}
+	
+	public void betAnnounce(int wage) {
+		output = "You bet " + wage;
 		update();
 	}
 	

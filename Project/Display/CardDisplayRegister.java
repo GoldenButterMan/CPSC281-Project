@@ -5,6 +5,7 @@ import Player.Player;
 import java.util.function.Consumer;
 
 public class CardDisplayRegister {
+	Register myRegister = new Register();
 	Player user = new Player();
 	private String output = "";
 	private Consumer<String> sink;
@@ -39,9 +40,9 @@ public class CardDisplayRegister {
 	}
 	
 	public void discardedCard(int i) {
-		output = "";
 		user.discard(i);
 		update();
+		
 	}
 
 }
