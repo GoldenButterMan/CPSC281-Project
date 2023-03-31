@@ -22,7 +22,7 @@ import Player.Player;
  *
  */
 public class PokerFrame extends JFrame{
-	private Player player = new Player();
+	//member variables needed for GUI
 	private JTextField pot;
 	private JTextArea display;
 	private JButton button = new JButton("Enter");
