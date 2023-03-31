@@ -42,7 +42,10 @@ public class BetRegister {
 		update();
 	}
 	//Sets how much the bet is and subtracts from user's total.
-	public void setBet(int wager) {
+	public void setBet(int wager) throws IllegalArgumentException{
+		if(wager < 0 || wager > user.getTotal()) {
+			throw new IllegalArgumentException("Invalid bet, please enter a different amount");
+		}
 		playerBet = user.bet(wager);
 		user.setTotal(user.getTotal() - playerBet);
 		bet = wager;
