@@ -14,7 +14,13 @@ import java.awt.FlowLayout;
 
 import javax.swing.JLabel;
 import Player.Player;
-
+/**
+ * Class for making a frame for the poker game
+ * 
+ * @author Spencer Peterson
+ * Student number: 230157543
+ *
+ */
 public class PokerFrame extends JFrame{
 	private Player player = new Player();
 	private JTextField pot;
@@ -49,7 +55,7 @@ public class PokerFrame extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 	}
-	
+	//method to create the primary display.
 	private void mainDisplay() {
 		display = new JTextArea();
 		display.setText("Enter Your Initial bet");
@@ -62,7 +68,7 @@ public class PokerFrame extends JFrame{
 		button.addActionListener((str) -> cardRegister.discardedCard(Integer.parseInt(textInput.getText()) - 1));
 		add(display);
 	}
-	
+	//Creates inputs for program
 	private void createInput() {
 		JPanel display1 = new JPanel();
 		display1.setLayout(new FlowLayout());
@@ -76,7 +82,7 @@ public class PokerFrame extends JFrame{
 		display1.add(button);
 		input.add(display1);
 	}
-	
+	//Creates the display for the player's hand
 	private void createCardDisplay() {
 		display2.setLayout(new BoxLayout(display2, BoxLayout.Y_AXIS));
 		cardDisplay.setEditable(false);
