@@ -40,10 +40,7 @@ public class CardDisplayRegister {
 	
 	public void discardedCard(int i) {
 		output = "";
-		user.getHand().remove(i);
-		/*for(int j = 0; j < user.getHand().size(); j++) {
-			output += user.getHand().get(j).toString();
-		}*/
+		user.discard(i);
 		update();
 	}
 
