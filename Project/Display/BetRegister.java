@@ -52,7 +52,10 @@ public class BetRegister {
 		update();
 	}
 	//Announces how much was bet.
-	public String betAnnounce() {
+	public String betAnnounce() throws IllegalArgumentException{
+		if(playerBet < 0 || playerBet > user.getTotal()) {
+			throw new IllegalArgumentException("Invalid bet, please enter a different amount");
+		}
 		return "You bet " + playerBet;
 	}
 	
