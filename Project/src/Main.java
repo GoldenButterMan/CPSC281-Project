@@ -7,11 +7,16 @@ import Player.Player;
 
 public class Main {
 	static Player player = new Player();
+	static Deck deck = new Deck();
 	private static void start() {
 		PokerFrame frame = new PokerFrame();
 	}
     public static void main (String[] args){
     	javax.swing.SwingUtilities.invokeLater(() -> start());
+    	player.setHand(deck);
+    	player.sortHand();
+    	System.out.println(player.getHand());
+    	System.out.println(rankPlayerHand());
     }
     
     /**

@@ -5,6 +5,7 @@ import java.util.Stack;
 import java.util.Random;
 import src.Card;
 import src.Deck;
+import java.util.Collections;
 /**
  * Class for the player actions.
  * 
@@ -20,6 +21,9 @@ public class Player {
 	public Player() {
 		total = 10000000;
 		hand = new ArrayList<>();
+		
+		this.sortHand();
+		
 	}
 	//How much the player is betting
 	public int bet(int wager) throws IllegalArgumentException{
@@ -36,7 +40,9 @@ public class Player {
 	public void setHand(Deck deck) {
 		for(int i = 0; i < 5; i++) {
 			this.hand.add(deck.getShuffledDeck().pop());
+			
 		}
+		this.sortHand();
 	}
 	//Get the player's hand
 	public ArrayList<Card> getHand() {
@@ -64,6 +70,15 @@ public class Player {
 	public void drawCard(Card card) {
 		hand.add(card);
 	}
+	
+	/**
+     * Sorts hand from smallest card to largest card.
+     */
+    public void sortHand(){
+
+        Collections.sort(hand);
+
+    }
 	
 	
 }

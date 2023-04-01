@@ -50,6 +50,7 @@ public class CardDisplayRegister {
 		discarded = user.getHand().get(i);
 		user.discard(i);
 		user.getHand().add(deck.getShuffledDeck().pop());
+		user.sortHand();
 		update();
 		
 	}
