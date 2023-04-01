@@ -49,6 +49,7 @@ public class CardDisplayRegister {
 	public void discardedCard(int i) {
 		discarded = user.getHand().get(i);
 		user.discard(i);
+		user.getHand().add(deck.getShuffledDeck().pop());
 		update();
 		
 	}
@@ -56,5 +57,8 @@ public class CardDisplayRegister {
 	public Card getDiscarded() {
 		return discarded;
 	}
-
+	
+	public Player getPlayer() {
+		return user;
+	}
 }
