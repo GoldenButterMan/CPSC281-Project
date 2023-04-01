@@ -6,17 +6,17 @@ import Display.*;
 import Player.Player;
 
 public class Main {
-	static Player player = new Player();
-	static Deck deck = new Deck();
+	//static Player player = new Player();
+	//static Deck deck = new Deck();
 	private static void start() {
 		PokerFrame frame = new PokerFrame();
 	}
     public static void main (String[] args){
     	javax.swing.SwingUtilities.invokeLater(() -> start());
-    	player.setHand(deck);
-    	player.sortHand();
-    	System.out.println(player.getHand());
-    	System.out.println(rankPlayerHand());
+    	//player.setHand(deck);
+    	//player.sortHand();
+    	//System.out.println(player.getHand());
+    	//System.out.println(rankPlayerHand());
     }
     
     /**
@@ -28,7 +28,7 @@ public class Main {
      * If statement time: Once again, I'm sure there's a better way, but our philosophy for coding this is to get
      * it working, then make it better.
      */
-    public static int rankPlayerHand(){
+    public static int rankPlayerHand(Player player){
 
         ArrayList<Card> playerHand = player.getHand();
         int numOfPairs = 0;

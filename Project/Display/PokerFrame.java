@@ -3,6 +3,7 @@ package Display;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.JScrollPane;
 import javax.swing.border.Border;
 import javax.swing.JTextArea;
 import javax.swing.BorderFactory;
@@ -23,6 +24,7 @@ import Player.Player;
  */
 public class PokerFrame extends JFrame{
 	//member variables needed for GUI
+	private JScrollPane scroll;
 	private JTextField pot;
 	private JTextArea display;
 	private JButton button = new JButton("Enter");
@@ -58,12 +60,15 @@ public class PokerFrame extends JFrame{
 	//method to create the primary display.
 	private void mainDisplay() {
 		display = new JTextArea();
+		scroll = new JScrollPane(display);
 		display.setText("Enter Your Initial bet");
 		display.setEditable(false);
 		display.setSize(800, 300);
 		display.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		myRegister.setRegisterListener((str) -> display.setText(str));
-		button.addActionListener((str) -> myRegister.setInput("You Discarded " + cardRegister.getDiscarded().toString() + "\n" + "You drew " + cardRegister.getPlayer().getHand().get(cardRegister.getPlayer().getHand().size() - 1) + "\n"));
+		button.addActionListener((in) -> cardRegister.increment());
+		button.addActionListener((str) -> myRegister.setInput("You Discarded " + cardRegister.getDiscarded().toString() + "\n"));
+		button.addActionListener((str) -> cardRegister.popper());
 		textInput.setEditable(true);
 		button.addActionListener((str) -> cardRegister.discardedCard(Integer.parseInt(textInput.getText()) - 1));
 		add(display);

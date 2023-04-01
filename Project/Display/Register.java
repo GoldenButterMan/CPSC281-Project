@@ -3,6 +3,8 @@ package Display;
 import Player.Player;
 import src.Deck;
 import java.util.function.Consumer;
+import src.Main;
+import Display.CardDisplayRegister;
 /**
  * Primary register for the main text input.
  * 
@@ -12,7 +14,8 @@ import java.util.function.Consumer;
  */
 public class Register {
 	private String output = "";
-	private Player user = new Player();
+	private CardDisplayRegister cardRegister = new CardDisplayRegister();
+	private Player user = cardRegister.getPlayer();
 	private int bet = user.getTotal();
 	private int playerBet;
 	private Deck deck = new Deck();
@@ -31,13 +34,39 @@ public class Register {
 	}
 	//Returns the display text for the main display.
 	public String getDisplayText() {
-		if(output.toLowerCase().equals("draw")) {
-			output += "You drew a card \n";
+		int result = Main.rankPlayerHand(user);
+		
+		if(result == 1000) {
+			output = "You got a royal flush";
 		}
-		if(output.toLowerCase().equals("fold")) {
-			output += "You fold your hand \n";
+		
+		else if(result >= 840 && result < 900) {
+			output = "You got four of a kind";
 		}
+		
+		else if(result >= 900 && result < 1000) {
+			output = "You got a straight";
+		}
+		
+		else if(result >= 785 && result < 840) {
+			output = "You got three of a kind";
+		}
+		
+		else if(result >= 732 && result < 732) {
+			output = "You got a flush";
+		}
+		
+		else if(result >= 679 && result < 732) {
+			output = "You got three of a kind";
+		}
+		
+		else if(result >= 520 && result < 679) {
+			output = "You got pairs";
+		}
+		
 		return output;
+		
+		
 	}
 	//Sets the output text based on input.
 	public void setInput(String in) {

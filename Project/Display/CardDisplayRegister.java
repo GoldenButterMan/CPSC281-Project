@@ -4,19 +4,23 @@ import src.Card;
 import src.Deck;
 import Player.Player;
 import java.util.function.Consumer;
+import java.util.Stack;
 /**Register involving the player's hand display
  * 
  * @author Spencer Peterson
  * Student Number: 230157543
  *
  */
-public class CardDisplayRegister {
+public class CardDisplayRegister{
+	private Stack<Card> discardStack = new Stack<>();
 	private Card discarded;
-	Register myRegister = new Register();
+	private boolean isEditable = true;
+	//Register myRegister = new Register();
 	Player user = new Player();
 	private String output = "";
 	private Consumer<String> sink;
 	private Deck deck = new Deck();
+	private int counter = 1;
 	
 	public CardDisplayRegister() {
 		user.setHand(deck);
@@ -47,10 +51,9 @@ public class CardDisplayRegister {
 	}
 	//discards card from hand
 	public void discardedCard(int i) {
+		discardStack.push(user.getHand().get(i));
 		discarded = user.getHand().get(i);
 		user.discard(i);
-		user.getHand().add(deck.getShuffledDeck().pop());
-		user.sortHand();
 		update();
 		
 	}
@@ -61,5 +64,29 @@ public class CardDisplayRegister {
 	
 	public Player getPlayer() {
 		return user;
+	}
+	
+	public void increment() {
+		counter++;
+	}
+	
+	public boolean getEditable() {
+		return isEditable;
+	}
+	
+	public int getCounter() {
+		return counter;
+	}
+	
+	public void popper() {
+		if(counter == 3) {
+			for(int i = 0; i < 3; i++) {
+				discardStack.pop();
+				user.getHand().add(deck.getShuffledDeck().pop());
+			}
+			user.sortHand();
+		} else {
+			return;
+		}
 	}
 }
