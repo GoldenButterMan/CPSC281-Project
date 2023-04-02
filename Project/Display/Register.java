@@ -60,7 +60,7 @@ public class Register {
 				output = "You got three of a kind";
 			}
 			
-			else if(result >= 732 && result < 732) {
+			else if(result >= 732 && result < 785) {
 				output = "You got a flush";
 			}
 			
