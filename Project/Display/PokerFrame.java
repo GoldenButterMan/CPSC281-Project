@@ -68,9 +68,11 @@ public class PokerFrame extends JFrame{
 		myRegister.setRegisterListener((str) -> display.setText(str));
 		button.addActionListener((in) -> myRegister.increment());
 		button.addActionListener((str) -> myRegister.setInput("You Discarded " + cardRegister.getDiscarded().toString() + "\n"));
-		button.addActionListener((str) -> cardRegister.popper());
-		textInput.setEditable(true);
 		button.addActionListener((str) -> cardRegister.discardedCard(Integer.parseInt(textInput.getText()) - 1));
+		button.addActionListener((str) -> cardRegister.popper());
+		button.addActionListener((str) -> myRegister.handResult());
+		textInput.setEditable(true);
+		
 		add(display);
 	}
 	//Creates inputs for program

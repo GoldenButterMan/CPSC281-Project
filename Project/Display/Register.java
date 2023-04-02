@@ -35,48 +35,53 @@ public class Register {
 		sink.accept(getDisplayText());
 	}
 	//Returns the display text for the main display.
-	public String getDisplayText() {
+	public String getDisplayText() {		
 		
+		return output;
+	}
+	
+	public void handResult() {
 		int counter = cardRegister.getCounter();
-		int result = Main.rankPlayerHand(user);
 		
-		if(counter <= 3) {
-			output = "";
-		}
-		else {
+		//Checks how many times the player has discarded before checking hand
+		if(!(counter < 3)){
+			int result = Main.rankPlayerHand(user);
 			if(result == 1000) {
-				output = "You got a royal flush";
+				output = "You got a royal flush \n";
+				
 			}
 			
 			else if(result >= 840 && result < 900) {
-				output = "You got four of a kind";
+				output = "You got four of a kind \n";
+				
 			}
 			
 			else if(result >= 900 && result < 1000) {
-				output = "You got a straight";
+				output = "You got a straight \n";
+				
 			}
 			
 			else if(result >= 785 && result < 840) {
-				output = "You got three of a kind";
+				output = "You got three of a kind \n";
+				
 			}
 			
 			else if(result >= 732 && result < 785) {
-				output = "You got a flush";
+				output = "You got a flush \n";
+				
 			}
 			
 			else if(result >= 679 && result < 732) {
-				output = "You got three of a kind";
+				output = "You got three of a kind \n";
+				
 			}
 			
 			else if(result >= 520 && result < 679) {
-				output = "You got pairs";
+				output = "You got pairs \n";
+				
 			}
+			update();
 		}
-		
-		
-		return output;
-		
-		
 	}
 	//Sets the output text based on input.
 	public void setInput(String in) {
