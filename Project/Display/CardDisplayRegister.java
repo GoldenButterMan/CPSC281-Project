@@ -4,6 +4,7 @@ import src.Card;
 import src.Deck;
 import Player.Player;
 import java.util.function.Consumer;
+import java.util.Collections;
 import java.util.Stack;
 /**Register involving the player's hand display
  * 
@@ -14,7 +15,7 @@ import java.util.Stack;
 public class CardDisplayRegister{
 	private Stack<Card> discardStack = new Stack<>();
 	private Card discarded;
-	private boolean isEditable = true;
+	private Card drawn;
 	//Register myRegister = new Register();
 	Player user = new Player();
 	private String output = "";
@@ -54,6 +55,9 @@ public class CardDisplayRegister{
 		discardStack.push(user.getHand().get(i));
 		discarded = user.getHand().get(i);
 		user.discard(i);
+		drawn = deck.getShuffledDeck().pop();
+		user.getHand().add(drawn);
+		Collections.sort(user.getHand());
 		update();
 		
 	}
@@ -62,21 +66,20 @@ public class CardDisplayRegister{
 		return discarded;
 	}
 	
+	public Card getDrawn() {
+		return drawn;
+	}
+	
 	public Player getPlayer() {
 		return user;
 	}
 	
 	
-	
-	public boolean getEditable() {
-		return isEditable;
-	}
-	
 	public int getCounter() {
 		return counter;
 	}
 	
-	public void popper() {
+	/*public void popper() {
 		if(discardStack.size() == 3) {
 			for(int i = 0; i < 3; i++) {
 				discardStack.pop();
@@ -86,5 +89,5 @@ public class CardDisplayRegister{
 		} else {
 			return;
 		}
-	}
+	}*/
 }

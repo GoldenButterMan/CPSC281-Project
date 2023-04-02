@@ -16,7 +16,6 @@ public class BetRegister {
 	private String output = "";
 	private Player user = new Player();
 	private int bet = user.getTotal();
-	private Deck deck = new Deck();
 	private Consumer<String> sink;
 	
 	public BetRegister() {
@@ -36,11 +35,6 @@ public class BetRegister {
 		output = Integer.toString(potTotal);
 		return output;
 	}
-	//Sets the input
-	public void setInput(String in) {
-		output = in;
-		update();
-	}
 	//Sets how much the bet is and subtracts from user's total.
 	public void setBet(int wager) throws IllegalArgumentException{
 		if(wager < 0 || wager > user.getTotal()) {
@@ -50,13 +44,6 @@ public class BetRegister {
 		user.setTotal(user.getTotal() - playerBet);
 		bet = wager;
 		update();
-	}
-	//Announces how much was bet.
-	public String betAnnounce() throws IllegalArgumentException{
-		if(playerBet < 0 || playerBet > user.getTotal()) {
-			throw new IllegalArgumentException("Invalid bet, please enter a different amount");
-		}
-		return "You bet " + playerBet;
 	}
 	
 
