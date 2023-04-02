@@ -66,9 +66,7 @@ public class CardDisplayRegister{
 		return user;
 	}
 	
-	public void increment() {
-		counter++;
-	}
+	
 	
 	public boolean getEditable() {
 		return isEditable;
@@ -79,7 +77,7 @@ public class CardDisplayRegister{
 	}
 	
 	public void popper() {
-		if(counter == 3) {
+		if(discardStack.size() == 3) {
 			for(int i = 0; i < 3; i++) {
 				discardStack.pop();
 				user.getHand().add(deck.getShuffledDeck().pop());

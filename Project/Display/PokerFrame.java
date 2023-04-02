@@ -66,7 +66,7 @@ public class PokerFrame extends JFrame{
 		display.setSize(800, 300);
 		display.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		myRegister.setRegisterListener((str) -> display.setText(str));
-		button.addActionListener((in) -> cardRegister.increment());
+		button.addActionListener((in) -> myRegister.increment());
 		button.addActionListener((str) -> myRegister.setInput("You Discarded " + cardRegister.getDiscarded().toString() + "\n"));
 		button.addActionListener((str) -> cardRegister.popper());
 		textInput.setEditable(true);
@@ -98,5 +98,9 @@ public class PokerFrame extends JFrame{
 		display2.add(cardDisplay);
 		input.add(display2);
 		
+	}
+	
+	public CardDisplayRegister getCardRegister() {
+		return cardRegister;
 	}
 }
