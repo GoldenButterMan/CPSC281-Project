@@ -6,17 +6,11 @@ import Display.*;
 import Player.Player;
 
 public class Main {
-	//static Player player = new Player();
-	//static Deck deck = new Deck();
 	private static void start() {
 		PokerFrame frame = new PokerFrame();
 	}
     public static void main (String[] args){
     	javax.swing.SwingUtilities.invokeLater(() -> start());
-    	//player.setHand(deck);
-    	//player.sortHand();
-    	//System.out.println(player.getHand());
-    	//System.out.println(rankPlayerHand());
     }
     
     /**
@@ -36,7 +30,6 @@ public class Main {
         boolean fourOfKind = false;
         boolean isStraight = false;
         boolean isFlush = false;
-        //int handRank;
 
         //Royal Flush
         if (playerHand.get(0).getName().equals("10")){
