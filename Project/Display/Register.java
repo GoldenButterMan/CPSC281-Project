@@ -15,6 +15,7 @@ import Display.PokerFrame;
  */
 public class Register {
 	private String output = "";
+	private int earnings;
 	private CardDisplayRegister cardRegister = new CardDisplayRegister();
 	private int counter = 1;
 	private Player user = cardRegister.getPlayer();
@@ -54,7 +55,9 @@ public class Register {
 	}
 	//Announces what the player has bet.
 	public void betAnnounce(int wager) {
-		output += "You bet " + wager + "\n";
+		earnings = wager;
+		user.bet(wager);
+		output += "You bet " + wager + "\n" + "You're current funds are " + user.getTotal() + "\n";
 		update();
 	}
 	
@@ -64,39 +67,44 @@ public class Register {
 	}
 	
 	public void results() {
-		int result = Main.rankPlayerHand(user);
-		
-		if(counter == 3)  {
+		if(counter >= 3)  {
+			int result = Main.rankPlayerHand(user);
 			if(result == 1000) {
-				output += "You got a royal flush \n";
+				output += "You got a royal flush \n" + "You earned back " + earnings + "\n";
+				user.setTotal(user.getTotal());
 			}
 			
 			else if(result >= 840 && result < 900) {
-				output += "You got four of a kind \n";
+				output += "You got four of a kind \n"  + "You earned back " + earnings + "\n";
+				user.setTotal(earnings);
 			}
 			
 			else if(result >= 900 && result < 1000) {
-				output += "You got a straight \n";
+				output += "You got a straight \n"  + "You earned back " + earnings + "\n";
+				user.setTotal(earnings);
 			}
 			
 			else if(result >= 785 && result < 840) {
-				output += "You got three of a kind \n";
+				output += "You got three of a kind \n"  + "You earned back " + earnings + "\n";
+				user.setTotal(earnings);
 			}
 			
 			else if(result >= 732 && result < 785) {
-				output += "You got a flush \n";
+				output += "You got a flush \n"  + "You earned back " + earnings + "\n";
+				user.setTotal(earnings);
 			}
 			
 			else if(result >= 679 && result < 732) {
-				output += "You got three of a kind \n";
+				output += "You got three of a kind \n"  + "You earned back " + earnings + "\n";
+				user.setTotal(earnings);
 			}
 			
 			else if(result >= 520 && result < 679) {
-				output += "You got pairs \n";
+				output += "You got pairs \n"  + "You earned back " + earnings + "\n";
+				user.setTotal(earnings);
 			}
 		}
 		
-		update();
 	}
 	
 
