@@ -2,11 +2,8 @@ package CommandLine;
 
 import java.util.*;
 /**
- * This is a command line variation of our project code. While the GUI version was the main one we worked on, having
- * a command line version is also useful, as the command line version can show a more complete version of what we
- * wanted to do with our code, but was tough to properly wire for the GUI.
+ * This is a command line variation of our project code.
  * 
- *
  */
 public class Main {
 
