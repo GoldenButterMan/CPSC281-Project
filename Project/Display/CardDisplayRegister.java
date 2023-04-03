@@ -82,15 +82,4 @@ public class CardDisplayRegister{
 		return counter;
 	}
 	
-	/*public void popper() {
-		if(discardStack.size() == 3) {
-			for(int i = 0; i < 3; i++) {
-				discardStack.pop();
-				user.getHand().add(deck.getShuffledDeck().pop());
-			}
-			user.sortHand();
-		} else {
-			return;
-		}
-	}*/
 }
