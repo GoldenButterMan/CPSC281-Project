@@ -11,7 +11,7 @@ import java.util.function.Consumer;
  *
  */
 public class BetRegister {
-	private Register myRegister = new Register();
+	private int counter = 1;
 	private int playerBet;
 	private int potTotal = 0;
 	private String output = "";
@@ -32,18 +32,21 @@ public class BetRegister {
 	}
 	//Returns the display text
 	public String getDisplayText() {
+		if(counter >= 3) {
+			return output;
+		}
 		potTotal += bet;
 		output = Integer.toString(potTotal);
 		return output;
 	}
 	
-	public String clearPot() {
-		int counter = myRegister.getCounter();
+	public void clearPot() {
+		counter++;
 		if(counter >= 3) {
 			potTotal = 0;
 			output = Integer.toString(potTotal);
+			update();
 		}
-		return output;
 	}
 	//Sets how much the bet is and subtracts from user's total.
 	public void setBet(int wager) throws IllegalArgumentException{
