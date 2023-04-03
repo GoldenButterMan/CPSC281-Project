@@ -21,7 +21,6 @@ public class CardDisplayRegister{
 	private String output = "";
 	private Consumer<String> sink;
 	private Deck deck = new Deck();
-	private int counter = 3;
 	
 	public CardDisplayRegister() {
 		user.setHand(deck);
@@ -75,11 +74,6 @@ public class CardDisplayRegister{
 	
 	public Player getPlayer() {
 		return user;
-	}
-	
-	
-	public int getCounter() {
-		return counter;
 	}
 	
 }
