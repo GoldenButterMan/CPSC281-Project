@@ -16,7 +16,7 @@ import Display.PokerFrame;
 public class Register {
 	private String output = "";
 	private CardDisplayRegister cardRegister = new CardDisplayRegister();
-	private int counter = 0;
+	private int counter = 1;
 	private Player user = cardRegister.getPlayer();
 	private int bet = user.getTotal();
 	private int playerBet;
