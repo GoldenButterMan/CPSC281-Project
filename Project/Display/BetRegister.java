@@ -11,6 +11,7 @@ import java.util.function.Consumer;
  *
  */
 public class BetRegister {
+	private Register myRegister = new Register();
 	private int playerBet;
 	private int potTotal = 0;
 	private String output = "";
@@ -33,6 +34,15 @@ public class BetRegister {
 	public String getDisplayText() {
 		potTotal += bet;
 		output = Integer.toString(potTotal);
+		return output;
+	}
+	
+	public String clearPot() {
+		int counter = myRegister.getCounter();
+		if(counter >= 3) {
+			potTotal = 0;
+			output = Integer.toString(potTotal);
+		}
 		return output;
 	}
 	//Sets how much the bet is and subtracts from user's total.

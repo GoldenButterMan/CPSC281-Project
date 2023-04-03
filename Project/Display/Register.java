@@ -65,6 +65,10 @@ public class Register {
 		counter++;
 	}
 	
+	public int getCounter() {
+		return counter;
+	}
+	
 	public void results() {
 		if(counter >= 3)  {
 			int result = Main.rankPlayerHand(user);
@@ -103,7 +107,7 @@ public class Register {
 				user.setTotal(earnings);
 			}
 			else {
-				output += "You got nothing! \n";
+				output += "You got nothing! \n" + "You lost " + earnings + "\n";
 			}
 		}
 		
