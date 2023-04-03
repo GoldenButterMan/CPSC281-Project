@@ -14,9 +14,9 @@ import Display.PokerFrame;
  *
  */
 public class Register {
-	private int counter = 1;
 	private String output = "";
 	private CardDisplayRegister cardRegister = new CardDisplayRegister();
+	private int counter = 0;
 	private Player user = cardRegister.getPlayer();
 	private int bet = user.getTotal();
 	private int playerBet;
@@ -36,40 +36,6 @@ public class Register {
 	}
 	//Returns the display text for the main display.
 	public String getDisplayText() {
-		
-		int counter = cardRegister.getCounter();
-		int result = Main.rankPlayerHand(user);
-		
-		if(!(counter <= 3))  {
-			if(result == 1000) {
-				output += "You got a royal flush";
-			}
-			
-			else if(result >= 840 && result < 900) {
-				output += "You got four of a kind";
-			}
-			
-			else if(result >= 900 && result < 1000) {
-				output += "You got a straight";
-			}
-			
-			else if(result >= 785 && result < 840) {
-				output += "You got three of a kind";
-			}
-			
-			else if(result >= 732 && result < 785) {
-				output += "You got a flush";
-			}
-			
-			else if(result >= 679 && result < 732) {
-				output += "You got three of a kind";
-			}
-			
-			else if(result >= 520 && result < 679) {
-				output += "You got pairs";
-			}
-		}
-		
 		
 		return output;
 		
@@ -93,7 +59,44 @@ public class Register {
 	}
 	
 	public void increment() {
+		System.out.println(counter);
 		counter++;
+	}
+	
+	public void results() {
+		int result = Main.rankPlayerHand(user);
+		
+		if(counter == 3)  {
+			if(result == 1000) {
+				output += "You got a royal flush \n";
+			}
+			
+			else if(result >= 840 && result < 900) {
+				output += "You got four of a kind \n";
+			}
+			
+			else if(result >= 900 && result < 1000) {
+				output += "You got a straight \n";
+			}
+			
+			else if(result >= 785 && result < 840) {
+				output += "You got three of a kind \n";
+			}
+			
+			else if(result >= 732 && result < 785) {
+				output += "You got a flush \n";
+			}
+			
+			else if(result >= 679 && result < 732) {
+				output += "You got three of a kind \n";
+			}
+			
+			else if(result >= 520 && result < 679) {
+				output += "You got pairs \n";
+			}
+		}
+		
+		update();
 	}
 	
 
