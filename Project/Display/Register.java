@@ -37,7 +37,6 @@ public class Register {
 	}
 	//Returns the display text for the main display.
 	public String getDisplayText() {
-		
 		return output;
 		
 		
@@ -60,7 +59,7 @@ public class Register {
 		output += "You bet " + wager + "\n" + "You're current funds are " + user.getTotal() + "\n";
 		update();
 	}
-	
+	//Increment counter
 	public void increment() {
 		System.out.println(counter);
 		counter++;
@@ -102,6 +101,9 @@ public class Register {
 			else if(result >= 520 && result < 679) {
 				output += "You got pairs \n"  + "You earned back " + earnings + "\n";
 				user.setTotal(earnings);
+			}
+			else {
+				output += "You got nothing! \n";
 			}
 		}
 		
