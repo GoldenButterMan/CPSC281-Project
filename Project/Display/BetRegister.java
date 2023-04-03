@@ -39,7 +39,7 @@ public class BetRegister {
 		output = Integer.toString(potTotal);
 		return output;
 	}
-	
+	//Clear's pot if the counter is ≥ 3.
 	public void clearPot() {
 		counter++;
 		if(counter >= 3) {
