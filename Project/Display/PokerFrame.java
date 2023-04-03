@@ -58,7 +58,7 @@ public class PokerFrame extends JFrame{
 		setVisible(true);
 	}
 	//method to create the primary display.
-	private void mainDisplay() {
+	private void mainDisplay(){
 		display = new JTextArea();
 		scroll = new JScrollPane(display);
 		display.setText("Enter Your Initial bet");

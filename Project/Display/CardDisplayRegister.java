@@ -52,6 +52,9 @@ public class CardDisplayRegister{
 	}
 	//discards card from hand
 	public void discardedCard(int i) {
+		if(i < 0) {
+			i = 1;
+		}
 		discardStack.push(user.getHand().get(i));
 		discarded = user.getHand().get(i);
 		user.discard(i);
